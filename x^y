@@ -1,0 +1,13 @@
+#computing x^y
+def power(x,y):
+    r=1
+    while y>0:
+        if y%2==1:
+            r*=x
+        x*=x
+        y//=2
+    return(r)
+    
+"""
+number of times the loop is executed is muchj lesser.
+"""
