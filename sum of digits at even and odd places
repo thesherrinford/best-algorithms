@@ -1,0 +1,3 @@
+# find if sum of digits at even position is equal to the sum of digits at odd positions
+def alt_digisum(n):
+    return(not(n%11))
