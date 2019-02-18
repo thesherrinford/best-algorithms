@@ -1,3 +1,4 @@
+#python 3
 def gcd(m,n):
     if m<n:
         (m,n)=(n,m)
