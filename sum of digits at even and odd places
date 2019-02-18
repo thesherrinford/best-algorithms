@@ -1,3 +1,4 @@
 # find if sum of digits at even position is equal to the sum of digits at odd positions
+#python 3
 def alt_digisum(n):
     return(not(n%11))
