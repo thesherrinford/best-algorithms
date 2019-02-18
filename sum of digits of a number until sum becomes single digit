@@ -1,3 +1,5 @@
+#find the sum of digits of a given number until the sum becomes single digit
+#python 3 code
 def digisum(n):
     if n == 0:
         return(0)
