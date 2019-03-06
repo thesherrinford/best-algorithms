@@ -1,0 +1,79 @@
+//Java code for MergeSort
+
+
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+//structure to sort the given array at place
+
+public class MergeSort {
+
+    //function to merge two sorted subarrays with starting indices i and j and ending at index k
+    void merge(int[] a, int i, int j, int k) {
+        int w = i;
+        int p = j;//limit for pointer i for first array
+        ArrayList<Integer> arr = new ArrayList<>();
+
+        //loop using i and j as pointer
+        while ((i < p) && (j <= k)) {
+            if (a[i] > a[j]) {
+                arr.add(a[j]);
+                j++;
+            } else {
+                arr.add(a[i]);
+                i++;
+            }
+        }
+
+        while (i < p) {
+            arr.add(a[i]);
+            i++;
+        }
+        while (j <= k) {
+            arr.add(a[j]);
+            j++;
+        }
+
+        int q = 0;
+        for (int r = w; r <= k; r++) {
+            a[r] = arr.get(q);
+            q++;
+        }
+    }
+
+    //function to sort a subarray of an array from index i to j
+    void sort(int[] a, int i, int j) {
+        if (i < j) {
+            int m = (i + j) / 2;
+
+            sort(a, i, m);
+            sort(a, m + 1, j);
+
+            merge(a, i, m + 1, j);
+        }
+    }
+
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+
+        Scanner sc = new Scanner(System.in);
+        String[] p = sc.nextLine().split(" ");
+
+        int[] ar = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            ar[i] = Integer.parseInt(p[i]);
+        }
+
+        MergeSort obj = new MergeSort();
+        obj.sort(ar, 0, n - 1);
+
+        for (int i : ar) {
+            System.out.println(i);
+        }
+    }
+}
