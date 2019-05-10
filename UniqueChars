@@ -1,0 +1,25 @@
+//This code checks if the sgiven string has all the chars unique of not.
+//Java code
+
+class UniqueChars{
+  public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    String str = sc.nextLine();
+    
+    System.out.println(IsUnique(str));
+  }
+  
+  boolean IsUnique(String str){
+    if(str.length>128) return false;
+    
+    boolean[] char_set = new Boolean[128];
+    
+    for(int i=0; i<str.length; i++){
+      int p = str.chatAt(i);
+      if(char_set[p]) return false;
+      char_set[p] = true;
+    }
+    
+    return true;
+  }
+}
