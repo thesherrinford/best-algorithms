@@ -1,0 +1,29 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+class InsertionSort {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] str = sc.nextLine().split(" ");
+
+        int n = str.length;
+
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = Integer.parseInt(str[i]);
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] > arr[j]) {
+                    arr[j] = arr[j] + arr[i];
+                    arr[i] = arr[j] - arr[i];
+                    arr[j] = arr[j] - arr[i];
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(arr));
+    }
+}

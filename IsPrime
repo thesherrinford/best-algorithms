@@ -1,0 +1,18 @@
+Class IsPrime{
+  public static void main(String[] args){
+    Scanner scanner = new Scanner(System.in);
+
+    int n = scanner.nextInt();
+    boolean flag = true;
+
+    if(n%2 == 0) flag = false;
+    else{
+      for(int i = 3; i < Math.sqrt(n); i+=2){
+        if(n%i == 0){
+          flag = false;
+          break;
+        }
+      }
+    }
+  }
+}

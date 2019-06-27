@@ -1,0 +1,19 @@
+class GCD{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+
+        String[] str = scanner.nextLine().split(" ");
+
+        int m = Integer.parseInt(str[0]);
+        int n = Integer.parseInt(str[1]);
+
+        if(n>m) swap(m, n);
+
+        int gcd = GreatestCommonDivisor(m, n);
+    }
+
+    public static int GreatestCommonDivisor(int m, int n){
+        if(m % n == 0) return n;
+        else return GreatestCommonDivisor(n, m % n);
+    }
+}

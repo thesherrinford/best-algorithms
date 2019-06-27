@@ -1,0 +1,58 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class hackerrank {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String[] str = sc.nextLine().split(" ");
+
+        int n = str.length;
+
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = Integer.parseInt(str[i]);
+        }
+
+
+        hackerrank ob = new hackerrank();
+
+        ob.quickSort(arr, 0, n - 1);
+
+        System.out.println(Arrays.toString(arr));
+
+    }
+
+    public static void quickSort(int[] arr, int l, int h) {
+        if (l < h) {
+            int part = partition(arr, l, h);
+
+            if (part + 1 <= h) {
+                quickSort(arr, l, part - 1);
+                quickSort(arr, part + 1, h);
+            }
+        }
+    }
+
+    public static int partition(int[] arr, int l, int h) {
+        int i = l + 1, j = h;
+        int p = arr[l];
+        while (i < j) {
+            while (arr[i] < p) i++;
+            while (arr[j] > p) j--;
+
+            if (i < j) {
+                arr[i] = arr[i] + arr[j];
+                arr[j] = arr[i] - arr[j];
+                arr[i] = arr[i] - arr[j];
+            }
+        }
+        if (l < j) {
+            arr[j] = arr[j] + arr[l];
+            arr[l] = arr[j] - arr[l];
+            arr[j] = arr[j] - arr[l];
+        }
+        return j;
+    }
+}

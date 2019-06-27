@@ -1,0 +1,23 @@
+public class SieveOfEratosthenes{
+  public static void main(String[] args){
+  Scanner scanner = new Scanner(System.in);
+      int n = scanner.nextInt();
+
+      boolean[] arr = new boolean[n + 1];
+      //default value for boolean array 'false'
+      //hence, if not prime, make it 'true'
+
+      for (int i = 2; i < Math.sqrt(n); i++) {
+      //iterating through bool array and crossing-off prime no.'s multiples 
+          if (arr[i] == false) {
+              for (int j = 2 * i; j <= n; j+=i) {
+                  arr[j] = true;
+              }
+          }
+      }
+
+      for (int i = 2; i < n; i++) {
+          if (!arr[i]) System.out.println(i);
+      }
+  }
+}

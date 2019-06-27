@@ -1,0 +1,14 @@
+Class Swap{
+  public static void main(String[] args){
+    Scanner scanner = new Scanner(System.in);
+    String[] str = scanner.nextLine().split(" ");
+
+    int a = Integer.parseInt(str[0]);
+    int b = Integer.parseInt(str[1]);
+
+    a = a + b;
+    b = a - b;
+    a = a - b;
+
+  }
+}

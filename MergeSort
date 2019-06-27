@@ -1,7 +1,3 @@
-//Java code for MergeSort
-
-
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
